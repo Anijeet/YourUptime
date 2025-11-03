@@ -4,12 +4,15 @@ use crate::{request_input::CreateWebsiteInput, request_output::CreateWebsiteOutp
 
 pub mod request_input;
 pub mod request_output;
+use store::Store;
 
 #[handler]
 fn create_website(Json(data): Json<CreateWebsiteInput>) -> Json<CreateWebsiteOutput>{
+    let s = Store{};
+    let id = s.create_website();
     // let url = data.url;
     let response = CreateWebsiteOutput {
-        id: data.url,
+        id
     };
 
     Json(response)
@@ -23,8 +26,8 @@ fn get_website(Path(website_id): Path<String>) -> String {
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
     let app = Route::new()
-    .at("/status/:website_id", get(create_website))
-    .at("/website", post(get_website));
+    .at("/status/:website_id", get(get_website))
+    .at("/website", post(create_website));
 
     //create a http  server that listens on port 3001
     Server::new(TcpListener::bind("0.0.0.0:3001"))

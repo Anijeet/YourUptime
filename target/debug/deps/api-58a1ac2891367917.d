@@ -1,0 +1,7 @@
+/home/mani/Documents/projects/betteruptimerust/target/debug/deps/api-58a1ac2891367917.d: api/src/main.rs api/src/request_input.rs api/src/request_output.rs
+
+/home/mani/Documents/projects/betteruptimerust/target/debug/deps/libapi-58a1ac2891367917.rmeta: api/src/main.rs api/src/request_input.rs api/src/request_output.rs
+
+api/src/main.rs:
+api/src/request_input.rs:
+api/src/request_output.rs:
