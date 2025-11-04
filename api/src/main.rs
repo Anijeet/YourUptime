@@ -4,11 +4,11 @@ use crate::{request_input::CreateWebsiteInput, request_output::CreateWebsiteOutp
 
 pub mod request_input;
 pub mod request_output;
-use store::Store;
+use store::store::Store;
 
 #[handler]
 fn create_website(Json(data): Json<CreateWebsiteInput>) -> Json<CreateWebsiteOutput>{
-    let s = Store{};
+    let s = Store::default;
     let id = s.create_website();
     // let url = data.url;
     let response = CreateWebsiteOutput {
