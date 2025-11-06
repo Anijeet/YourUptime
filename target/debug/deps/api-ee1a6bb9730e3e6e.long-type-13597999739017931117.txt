@@ -1,0 +1,4 @@
+(dyn diesel::connection::statement_cache::strategy::StatementCacheStrategy<diesel::pg::backend::Pg, diesel::pg::connection::stmt::Statement> + 'static)
+Unique<(dyn diesel::connection::statement_cache::strategy::StatementCacheStrategy<diesel::pg::backend::Pg, diesel::pg::connection::stmt::Statement> + 'static)>
+Box<(dyn diesel::connection::statement_cache::strategy::StatementCacheStrategy<diesel::pg::backend::Pg, diesel::pg::connection::stmt::Statement> + 'static)>
+diesel::connection::statement_cache::StatementCache<diesel::pg::backend::Pg, diesel::pg::connection::stmt::Statement>
