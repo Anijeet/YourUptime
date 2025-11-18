@@ -1,0 +1,2 @@
+for<'a> fn(poem::web::Json<CreateUserInput>, Data<&'a Arc<std::sync::Mutex<Store>>>) -> Result<poem::web::Json<SigninUserOutput>, poem::Error> {sign_in}
+for<'a> fn(poem::web::Json<CreateUserInput>, Data<&'a Arc<std::sync::Mutex<Store>>>) -> Result<poem::web::Json<SigninUserOutput>, poem::Error> {sign_in}: Endpoint

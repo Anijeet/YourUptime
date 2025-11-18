@@ -29,7 +29,7 @@ impl Store {
     }
 
 
-    pub fn sign_in(&mut self, input_username:String, input_password:String)->Result<bool, diesel::result::Error>{
+    pub fn sign_in(&mut self, input_username:String, input_password:String)->Result<String, diesel::result::Error>{
        use crate::schema::user::dsl::*;
 
        let user_result = user
@@ -37,10 +37,10 @@ impl Store {
        .select(User::as_select())
        .first(&mut self.conn)?;
 
-        if user_result.password != input_password{
-            return Ok(false);
+        if user_result.password == input_password {
+            Ok(user_result.id)
+        } else {
+            Err(diesel::result::Error::NotFound)
         }
-
-        Ok(true)
     }
 }
