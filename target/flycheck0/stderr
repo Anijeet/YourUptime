@@ -1,12 +1,92 @@
-   0.151758185s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: stale: changed "/home/mani/Documents/projects/betteruptimerust/api/src/routes/user.rs"
-   0.151799272s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:           (vs) "/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-a4d05895619be3a6/dep-bin-api"
-   0.151805304s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762492831, nanos: 971528099 } < FileTime { seconds: 1763443317, nanos: 241676169 }
-   0.152096213s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: fingerprint dirty for api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api)/Check { test: false }/TargetInner { name: "api", doc: true, ..: with_path("/home/mani/Documents/projects/betteruptimerust/api/src/main.rs", Edition2024) }
-   0.152120348s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-a4d05895619be3a6/dep-bin-api", reference_mtime: FileTime { seconds: 1762492831, nanos: 971528099 }, stale: "/home/mani/Documents/projects/betteruptimerust/api/src/routes/user.rs", stale_mtime: FileTime { seconds: 1763443317, nanos: 241676169 } }))
-   0.159738125s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: stale: changed "/home/mani/Documents/projects/betteruptimerust/api/src/routes/user.rs"
-   0.159760768s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:           (vs) "/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-ee1a6bb9730e3e6e/dep-test-bin-api"
-   0.159765968s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762492831, nanos: 971528099 } < FileTime { seconds: 1763443317, nanos: 241676169 }
-   0.159847392s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: fingerprint dirty for api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api)/Check { test: true }/TargetInner { name: "api", doc: true, ..: with_path("/home/mani/Documents/projects/betteruptimerust/api/src/main.rs", Edition2024) }
-   0.159862831s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-ee1a6bb9730e3e6e/dep-test-bin-api", reference_mtime: FileTime { seconds: 1762492831, nanos: 971528099 }, stale: "/home/mani/Documents/projects/betteruptimerust/api/src/routes/user.rs", stale_mtime: FileTime { seconds: 1763443317, nanos: 241676169 } }))
+   0.471988747s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: fingerprint error for api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api)/Check { test: false }/TargetInner { name: "api", doc: true, ..: with_path("/home/mani/Documents/projects/betteruptimerust/api/src/main.rs", Edition2024) }
+   0.472064270s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-8d491507e67f49c4/bin-api`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/ops/function.rs:290:21
+  15: std::panicking::catch_unwind::do_call
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
+  16: std::panicking::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
+  17: std::panic::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:175:24
+  19: std::panicking::catch_unwind::do_call
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
+  20: std::panicking::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
+  21: std::panic::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
+  22: std::rt::lang_start_internal
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:171:5
+  23: main
+  24: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  25: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:360:3
+  26: <unknown>
+   0.624186873s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint: fingerprint error for api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api)/Check { test: true }/TargetInner { name: "api", doc: true, ..: with_path("/home/mani/Documents/projects/betteruptimerust/api/src/main.rs", Edition2024) }
+   0.624224845s  INFO prepare_target{force=false package_id=api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api) target="api"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/mani/Documents/projects/betteruptimerust/target/debug/.fingerprint/api-ec79ec2307b151a5/test-bin-api`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/ops/function.rs:290:21
+  15: std::panicking::catch_unwind::do_call
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
+  16: std::panicking::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
+  17: std::panic::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:175:24
+  19: std::panicking::catch_unwind::do_call
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
+  20: std::panicking::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
+  21: std::panic::catch_unwind
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
+  22: std::rt::lang_start_internal
+             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:171:5
+  23: main
+  24: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  25: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:360:3
+  26: <unknown>
     Checking api v0.1.0 (/home/mani/Documents/projects/betteruptimerust/api)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.57s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.41s

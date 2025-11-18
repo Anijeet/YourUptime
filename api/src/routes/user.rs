@@ -2,6 +2,8 @@ use std::sync::{Arc, Mutex};
 
 use crate::request_output::SigninUserOutput;
 use crate::{request_input::CreateUserInput, request_output::CreateUserOutput};
+use serde::{Serialize, Deserialize};
+use jsonwebtoken::{encode, decode, Header, Algorithm, Validation, EncodingKey, DecodingKey};
 // use poem::Error;
 use poem::{
     Error, handler,
@@ -9,6 +11,12 @@ use poem::{
     web::{Data, Json},
 };
 use store::{schema::website::user_id, store::Store};
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Claims {
+    sub: String,
+    exp: usize,
+}
 
 #[handler]
 pub fn sign_up(
@@ -33,8 +41,15 @@ pub fn sign_in(
 
     match result {
         Ok(result) => {
+
+            let my_claims = Claims{
+                sub: result,
+                exp: 11111111111
+            };
+            let token = encode(&Header::default(), &my_claims, &EncodingKey::from_secret("secret".as_ref())).map_err(|_| Error::from_status(StatusCode::UNAUTHORIZED))?;
+
             let response = SigninUserOutput {
-                jwt: result,
+                jwt: token,
             };
             Ok(Json(response))
         }
