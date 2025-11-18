@@ -1,2 +1,0 @@
-for<'a> fn(Json<CreateUserInput>, Data<&'a Arc<std::sync::Mutex<Store>>>) -> Result<Json<CreateUserOutput>, poem::Error> {sign_up}
-for<'a> fn(Json<CreateUserInput>, Data<&'a Arc<std::sync::Mutex<Store>>>) -> Result<Json<CreateUserOutput>, poem::Error> {sign_up}: Endpoint

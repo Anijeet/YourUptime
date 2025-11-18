@@ -1,1 +1,0 @@
-std::option::Option<Box<(dyn diesel::connection::instrumentation::Instrumentation + 'static)>>
